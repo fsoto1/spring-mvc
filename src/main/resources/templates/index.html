@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+   	<link href="/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+
+  </head>
+
+  <body>
+  
+  	<nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
+         <a class="navbar-brand" href="#" th:href="@{/}">Personas SPRING-MVC</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+               <a class="nav-link" href="#" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+             </li>                        
+           </ul>
+         </div>
+      </nav>
+	
+
+    <div class="container">   
+      <main role="main">
+        <h3>Personas</h3>
+        <hr/>
+          	<table class="table table-hover table-responsive">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Apellidos</th>
+			      <th scope="col">Teléfono</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr th:each="persona ${personas}">
+				    <td th:text="${{persona.id}}" />
+				    <td th:text="${{persona.nombre}}" />
+				    <td th:text="${{persona.apellidos}}"/>
+				    <td th:text="${{persona.telefono}}"/>			    
+				</tr>
+			  </tbody>
+			</table>
+      </main>
+    </div> 
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript"  th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript"  th:src="@{/js/main.js}"></script>
+  </body>
+</html>
