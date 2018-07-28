@@ -34,9 +34,37 @@
 
     <div class="container">   
       <main role="main">
-        <h3>Personas</h3>
+        <h1>Personas</h1>
         <hr/>
-          	<table class="table table-hover table-responsive">
+        
+        <button class="btn btn-lg btn-success" id="btn-add-persona"><i class="fas fa-plus-circle"></i> Persona</button>
+        
+        <div id="form-add-persona">
+       		<form id="formAddPersona" method="POST" action="#" th:action="@{/}">
+			  <div class="form-group">
+			    <label for="nombre">Nombre</label>
+			    <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre">
+			  </div>
+			  <div class="form-group">
+			    <label for="nombre">Apellido</label>
+			    <input type="text" class="form-control" id="apellidos" aria-describedby="apellidos" name="apellidos">
+			  </div>
+			  <div class="form-group">
+			    <label for="nombre">Teléfono</label>
+			    <input type="text" class="form-control" id="telefono" aria-describedby="telefono" name="telefono">
+			    <small id="emailHelp" class="form-text text-muted">ej: +56998765432</small>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Agregar</button>
+			</form>
+       	</div>
+        	
+       	<div th:if="personas != null" class="text-center">
+       		<i class="far fa-frown fa-5x"></i>
+       		<h3>No hay personas registradas</h3>
+       	</div>
+
+       	<div>
+          	<table id="tabla-personas" class="table table-hover table-responsive">
 			  <thead>
 			    <tr>
 			      <th scope="col">ID</th>
@@ -46,7 +74,7 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<tr th:each="persona ${personas}">
+			  	<tr th:each="persona: ${personas}">
 				    <td th:text="${{persona.id}}" />
 				    <td th:text="${{persona.nombre}}" />
 				    <td th:text="${{persona.apellidos}}"/>
@@ -54,6 +82,7 @@
 				</tr>
 			  </tbody>
 			</table>
+       	</div>
       </main>
     </div> 
     
