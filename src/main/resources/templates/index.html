@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
    	<link href="/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
-
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
 
   <body>
   
   	<nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
-         <a class="navbar-brand" href="#" th:href="@{/}">Personas SPRING-MVC</a>
+         <a class="navbar-brand" href="#" th:href="@{/}">Contactos SPRING-MVC</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
@@ -33,63 +33,125 @@
 	
 
     <div class="container">   
-      <main role="main">
-        <h1>Personas</h1>
+        <h1>Persona</h1>
         <hr/>
         
-        <button class="btn btn-lg btn-success" id="btn-add-persona"><i class="fas fa-plus-circle"></i> Persona</button>
+        <button class="btn btn-lg btn-success mb-3" id="btn-add-persona" data-toggle="modal" data-target="#modalAddPersona"><i class="fas fa-plus-circle"></i> Nueva</button>
         
-        <div id="form-add-persona">
-       		<form id="formAddPersona" method="POST" action="#" th:action="@{/}">
-			  <div class="form-group">
-			    <label for="nombre">Nombre</label>
-			    <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre">
-			  </div>
-			  <div class="form-group">
-			    <label for="nombre">Apellido</label>
-			    <input type="text" class="form-control" id="apellidos" aria-describedby="apellidos" name="apellidos">
-			  </div>
-			  <div class="form-group">
-			    <label for="nombre">Teléfono</label>
-			    <input type="text" class="form-control" id="telefono" aria-describedby="telefono" name="telefono">
-			    <small id="emailHelp" class="form-text text-muted">ej: +56998765432</small>
-			  </div>
-			  <button type="submit" class="btn btn-primary">Agregar</button>
-			</form>
-       	</div>
+        <div class="modal fade" id="modalAddPersona" tabindex="-1" role="dialog" aria-labelledby="modalAddPersonaLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="modalAddPersonaLabel">Nueva Persona</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		       		<form id="formAddPersona" method="POST" action="#" th:action="@{/}">
+					  <div class="form-group">
+					    <label for="nombre">Nombre</label>
+					    <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre">
+					  </div>
+					  <div class="form-group">
+					    <label for="nombre">Apellido</label>
+					    <input type="text" class="form-control" id="apellidos" aria-describedby="apellidos" name="apellidos">
+					  </div>
+					  <div class="form-group">
+					    <label for="nombre">Teléfono</label>
+					    <input type="text" class="form-control" id="telefono" aria-describedby="telefono" name="telefono">
+					    <small id="help" class="form-text text-muted">ej: +56998765432</small>
+					  </div>
+					  <button type="submit" class="btn btn-block btn-success">Agregar</button>
+					</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="modalEditPersona" tabindex="-1" role="dialog" aria-labelledby="modalEditPersonaLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="modalEditPersonaLabel">Editar Persona</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		       		<form id="formEditPersona" action="#" th:action="@{/}">
+		       		  <div class="form-group">
+					    <input type="text" class="form-control" id="idEdit" aria-describedby="id" name="id" hidden="true">
+					  </div>
+					  <div class="form-group">
+					    <label for="nombre">Nombre</label>
+					    <input type="text" class="form-control" id="nombreEdit" aria-describedby="nombre" name="nombre">
+					  </div>
+					  <div class="form-group">
+					    <label for="nombre">Apellido</label>
+					    <input type="text" class="form-control" id="apellidosEdit" aria-describedby="apellidos" name="apellidos">
+					  </div>
+					  <div class="form-group">
+					    <label for="nombre">Teléfono</label>
+					    <input type="text" class="form-control" id="telefonoEdit" aria-describedby="telefono" name="telefono">
+					  </div>
+					  <button type="submit" class="btn btn-block btn-success">Agregar</button>
+					</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+        
+        
         	
-       	<div th:if="personas != null" class="text-center">
+       	<div th:if="personas == null" class="text-center">
        		<i class="far fa-frown fa-5x"></i>
        		<h3>No hay personas registradas</h3>
        	</div>
 
-       	<div>
-          	<table id="tabla-personas" class="table table-hover table-responsive">
+       	<div class="table-responsive">
+          	<table id="tabla-personas" class="table table-hover">
 			  <thead>
 			    <tr>
 			      <th scope="col">ID</th>
 			      <th scope="col">Nombre</th>
 			      <th scope="col">Apellidos</th>
 			      <th scope="col">Teléfono</th>
+			      <th scope="col"></th>
+			      <th scope="col"></th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			  	<tr th:each="persona: ${personas}">
-				    <td th:text="${{persona.id}}" />
-				    <td th:text="${{persona.nombre}}" />
-				    <td th:text="${{persona.apellidos}}"/>
-				    <td th:text="${{persona.telefono}}"/>			    
+				    <td class="id" th:text="${{persona.id}}"/>
+				    <td class="nombre" th:text="${{persona.nombre}}" />
+				    <td class="apellidos" th:text="${{persona.apellidos}}"/>
+				    <td class="telefono" th:text="${{persona.telefono}}"/>				    
+				    <td><button class="btn btn-sm btn-warning editPersona"><i class="fas fa-edit"/></button></td>
+				    <td><button class="btn btn-sm btn-danger deletePersona"><i class="fas fa-trash-alt"/></button></td>
 				</tr>
 			  </tbody>
 			</table>
        	</div>
-      </main>
     </div> 
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <div id="alerta-add" class="alerta alert alert-success alert-dismissible " role="alert">
+	  <strong>Persona <span></span> correctamente!</strong>
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+	
+	
+    <script type="text/javascript"  th:src="@{/js/jquery-3.3.1.min.js}"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script type="text/javascript"  th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>    
     <script type="text/javascript"  th:src="@{/js/main.js}"></script>
   </body>
 </html>

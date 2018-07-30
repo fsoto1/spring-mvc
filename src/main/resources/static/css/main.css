@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
     justify-content: center;
     padding-bottom: 40px;
 }
+
 .form-app{
 	width: 100%;
 	max-width: 350px;
@@ -33,4 +35,12 @@ table {
 
 nav {
 	margin-bottom: 40px;
+}
+
+.alerta{
+	display: none;
+	position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 30%;
 }
