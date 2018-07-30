@@ -37,10 +37,14 @@ nav {
 	margin-bottom: 40px;
 }
 
+.bg-primary {
+    background-color: #234354 !important;;
+}
 .alerta{
 	display: none;
 	position: fixed;
     top: 60px;
     right: 20px;
-    width: 30%;
+    min-width: 300px;
+    max-width: 400px
 }
